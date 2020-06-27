@@ -1,0 +1,32 @@
+{% extends 'flashcards/base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+    <h1>Flashcards</h1>
+
+    <form action="{% url "flash:create" %}"  method="post">{% csrf_token %}
+        <p>
+            <label for="title">Title</label><br>
+            <input type="text"
+                   name="title"
+                   id="id_title"
+                   placeholder="Card title">
+        </p>
+        <p>
+            <label for="front-text">Front text</label><br>
+            <input type="text"
+                   name="front-text"
+                   id="id_front-text"
+                   placeholder="Front text">
+        </p>
+        <p>
+            <label for="back-text">Back text</label><br>
+            <input type="text"
+                   name="back-text"
+                   id="id_back-text"
+                   placeholder="Back text">
+        </p>
+        <input type="submit" hidden />
+    </form>
+{% endblock %}

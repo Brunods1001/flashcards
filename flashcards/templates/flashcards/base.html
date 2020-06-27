@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+    {% if messages %}
+        {% for message in messages %}
+            {% if message.level_tag == 'success' %}
+                <div class="alert alert-success">{{ message }}</div>
+            {% else %}
+                <div class="alert alert-warning">{{ message }}</div>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+    {% block content %}
+    {% endblock %}
+</body>
+</html>
